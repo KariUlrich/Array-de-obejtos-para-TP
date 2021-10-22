@@ -111,19 +111,13 @@ console.log(operaciones[3].categoria)
 
 const contenedorItemNuevaOperacion = document.querySelector("#contenedor-item-nueva-operacion")
 
-    
 const colorDeMonto = (objeto) => {
-    const montoItemOperacion = document.querySelector("#monto-item-operacion")
-        if (objeto.tipo === "Ganancia"){
-            montoItemOperacion.classList.add("has-text-success")
-            return objeto.monto
-         }
-        else{
-             montoItemOperacion.classList.add("has-text-danger")
-             return objeto.monto
-         }   
-         
-}
+  if (objeto.tipo === "Ganancia") {
+    return "has-text-success";
+  } else {
+    return "has-text-danger";
+  }
+};
 
 
 let acc = ""
@@ -136,7 +130,7 @@ const convertirOperacionesaHTML = (operaciones) => {
         </div>
         <p id="fecha-item-operacion" class="column is-2 is-hidden-mobile">${operacion.fecha}</p>
 
-        <p id="monto-item-operacion" class="column is-2 is-3-mobile has-text-weight-bold ${colorDeMonto(operacion)}">
+        <p id="monto-item-operacion" class="column is-2 is-3-mobile has-text-weight-bold ${colorDeMonto(operacion)}">${operacion.monto}</p>
         </p>
         <div class="column is-2 is-3-mobile pt-0">
           <button id="boton-editar-item-operaciones" class="button is-ghost is-small pt-0 pb-0">Editar</button>
